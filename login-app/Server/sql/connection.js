@@ -6,11 +6,20 @@ class Connection {
       console.log("creating mysql connection...");
       this.pool = mysql.createPool({
         connectionLimit: 100,
-        host: "34.66.38.33",
-        user: "root",
-        password: process.env.MY_PASSWORD,
-        database: "Admin"
+        host: "den1.mysql6.gear.host",
+        user: "newappdatabase",
+        password: "Ab6wguJ~W_71",
+        database: "newappdatabase",
       });
+
+
+      // host: process.env.DB_HOST,
+      // user: process.env.DB_USER,
+      // password: process.env.DB_PASSWORD,
+      // database: process.env.DEFAULT_DB,
+
+
+
 
       return this.pool;
     }

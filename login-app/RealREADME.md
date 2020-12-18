@@ -24,8 +24,8 @@ GAMEPLAN:
 2: Integrate backend App: DONE
 3: Install itinal Packages: DONE
 4: Concurrently start React App + Server, and test server in Postman: DONE
-5: Make new table/database in MySql workbench to connect server to:
-6: Make sure backend can reach database in postman:
-7: Test Authentication from backend:
+5: Make new table/database in MySql workbench to connect server to: DONE
+6: Make sure backend can reach database in postman: DONE
+7: Test Authentication from backend: DONE - test some more to be sure
 8: Build Components in Front end, use protected routes:
 9: Implement redux to make fetch calls to back end to do authentication:

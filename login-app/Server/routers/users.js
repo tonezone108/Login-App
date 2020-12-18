@@ -7,14 +7,12 @@ router.get("/", authenticate, usersController.getAllUsers);
 
 router.get("/:id", authenticate, usersController.getUserById);
 
-router.post("/", authenticate, usersController.createUser);
+// router.post("/", authenticate, usersController.createUser);
 
-router.put("/:id", authenticate, usersController.updateUserById);
+// router.put("/:id", authenticate, usersController.updateUserById);
 
 router.delete(
-  "/:first_name",
-  authenticate,
-  usersController.deleteUserByFirstName
+  "/:username", authenticate, usersController.deleteUserByFirstName
 );
 
 module.exports = router;

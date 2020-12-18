@@ -8,10 +8,10 @@ const { handleSQLError } = require('../sql/error')
 const saltRounds = 10
 
 const signup = (req, res) => {
-  const { username, password } = req.body
-  let sql = "INSERT INTO usersCredentials (username, password) VALUES (?, ?)"
+  const { username, userpassword } = req.body
+  let sql = "INSERT INTO login_app_users (username, userpassword) VALUES (?, ?)"
 
-  bcrypt.hash(password, saltRounds, function(err, hash) {
+  bcrypt.hash(userpassword, saltRounds, function(err, hash) {
     sql = mysql.format(sql, [ username, hash ])
   
     pool.query(sql, (err, result) => {
@@ -25,21 +25,21 @@ const signup = (req, res) => {
 }
 
 const login = (req, res) => {
-  const { username, password } = req.body
-  let sql = "SELECT * FROM usersCredentials WHERE username = ?"
+  const { username, userpassword } = req.body
+  let sql = "SELECT * FROM login_app_users WHERE username = ?"
   sql = mysql.format(sql, [ username ])
 
   pool.query(sql, (err, rows) => {
     if (err) return handleSQLError(res, err)
     if (!rows.length) return res.status(404).send('No matching users')
 
-    const hash = rows[0].password
-    bcrypt.compare(password, hash)
+    const hash = rows[0].userpassword
+    bcrypt.compare(userpassword, hash)
       .then(result => {
-        if (!result) return res.status(400).send('Invalid password')
+        if (!result) return res.status(400).send('Invalid userpassword')
 
         const data = { ...rows[0] }
-        data.password = 'REDACTED'
+        data.userpassword = 'REDACTED'
 
         const token = jwt.sign(data, 'secret')
         res.json({
