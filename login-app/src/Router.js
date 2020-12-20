@@ -5,11 +5,16 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 
 // Write checkAuth function here
+
+
 const checkAuth = () => {
-  const cookies = cookie.parse(document.cookie);
-  console.log(cookies);
-  return cookies["loggedIn"] ? true : false;
-};
+const cookies = cookie.parse(document.cookie);
+var isTrueSet = (cookies["loggedIn"] == 'true');
+return isTrueSet
+}
+
+
+
 // Check the cookies for a cookie called "loggedIn"
 
 // Write ProtectedRoute function here
