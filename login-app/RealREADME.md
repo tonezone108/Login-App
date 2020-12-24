@@ -21,6 +21,7 @@ bcrypt
 @material-ui/core
 @material-ui/icons
 react-router-dom
+thunk / redux-thunk
 
 GAMEPLAN:
 1: Create react app : DONE

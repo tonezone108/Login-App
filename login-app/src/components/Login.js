@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router";
 import { TextField, Button, Container } from "@material-ui/core";
 
-class App extends Component {
+class Login extends Component {
   state = {
     username: "",
     password: ""
@@ -60,4 +60,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Login;

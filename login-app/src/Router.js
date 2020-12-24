@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router";
 import cookie from "cookie";
 import Home from "./components/Home";
-import Login from "./components/Login";
+import Login from "./containers/Login";
 
 // Write checkAuth function here
 
