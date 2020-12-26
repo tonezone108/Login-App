@@ -14,13 +14,28 @@ class Login extends Component {
     this.setState(state);
   };
 
-  login = e => {
+  displayLocalState = e => {
     e.preventDefault();
-    // set cookie here
-    // set loggedIn = true and max-age = 60*1000 (one minute)
-    document.cookie = "loggedIn=true; max-age = 60*1000";
+    const userObject = {
+      username: this.state.username,
+      password: this.state.password
+    };
 
-    window.location.replace("/");
+    console.log(userObject);
+  }
+
+
+  login = (e) => {
+    e.preventDefault();
+    // alert('did it run?')
+    const userObject = {
+      username: this.state.username,
+      userpassword: this.state.password
+    };
+    console.log("This is the userObject the Login.js component sent to actions: " + userObject)
+    this.props.login(userObject);
+
+    // window.location.replace("/");
   };
 
   render() {
@@ -49,12 +64,14 @@ class Login extends Component {
               className="login-button"
               variant="contained"
               color="primary"
+              
             >
               Login
             </Button>
           </form>
         </Container>
         <Button onClick={this.login}>Use this button to login for now.</Button>
+        <Button onClick={this.displayLocalState}>Use this button to test local state</Button>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 const login = (User) => {
     return function (dispatch) {
-      fetch("http://localhost:5001/auth/login", {
+      fetch("http://localhost:4000/auth/login", {
         method: "POST",
         body: JSON.stringify(User),
         headers: {
@@ -10,11 +10,16 @@ const login = (User) => {
         .then((res) =>
           res.json().then((data) => {
             dispatch(userLoad(data));
+            
+    document.cookie = "loggedIn=true; max-age = 60*1000";
+    console.log(data)
           })
         )
   
         .catch((error) => {
+            console.log(error);
           return {
+            
             type: "error",
             value: error,
           };
@@ -25,7 +30,7 @@ const login = (User) => {
 
   const signUp = (User) => {
     return function (dispatch) {
-      fetch("http://localhost:5001/auth/signup", {
+      fetch("http://localhost:4000/auth/signup", {
         method: "POST",
         body: JSON.stringify(User),
         headers: {
@@ -41,6 +46,7 @@ const login = (User) => {
         )
   
         .catch((error) => {
+            console.log(error);
           return {
             type: "error",
             value: error,
