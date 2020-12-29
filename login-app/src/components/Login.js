@@ -34,11 +34,24 @@ class Login extends Component {
     };
     console.log("This is the userObject the Login.js component sent to actions: " + userObject)
     this.props.login(userObject);
-
-    // window.location.replace("/");
+    console.log(this.props.user.username)
   };
 
+
+  componentDidUpdate() { 
+    if(this.props.user.username){
+      window.location.replace("/");
+    }
+    console.log(this.props.user.username)
+  }
+
+
   render() {
+
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="App">
         <Container maxWidth="sm">
