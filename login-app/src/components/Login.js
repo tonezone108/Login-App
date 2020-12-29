@@ -1,13 +1,23 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router";
-import { TextField, Button, Container } from "@material-ui/core";
+import { 
+  TextField, 
+  Button, 
+  Container,
+  Dialog,
+  DialogContent,
+  DialogTitle, 
+} from "@material-ui/core";
 
 class Login extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    newuser: "",
+    newpassword: ""
   };
 
+  toggleDialog = () => this.setState({ open: !this.state.open });
   handleTextChange = e => {
     const state = { ...this.state };
     state[e.target.name] = e.target.value;
@@ -36,6 +46,20 @@ class Login extends Component {
     this.props.login(userObject);
     console.log(this.props.user.username)
   };
+
+  createAccount = (e) => {
+    const userObject = {
+      username: this.state.newuser,
+      userpassword: this.state.newpassword,
+    };
+    
+    e.preventDefault();
+    if (this.state.userName !== "") {
+    this.props.signUp(userObject);
+    
+    } 
+  };
+
 
 
   componentDidUpdate() { 
@@ -72,6 +96,7 @@ class Login extends Component {
               label="Password"
               type="password"
             />
+            <br/>
             <Button
               type="submit"
               className="login-button"
@@ -81,7 +106,50 @@ class Login extends Component {
             >
               Login
             </Button>
+            <Button
+              variant="contained"
+              className="add-user"
+              onClick={this.toggleDialog}
+            >
+              Sign Up
+            </Button>
           </form>
+          <div>
+            <Dialog open={this.state.open} onClose={this.toggleDialog}>
+              <DialogTitle>Create Account</DialogTitle>
+              <DialogContent>
+                <form
+                  onSubmit={this.createAccount}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "350px",
+                  }}
+                >
+                  <TextField
+                    required
+                    onChange={this.handleTextChange}
+                    value={this.state.newuser}
+                    name="newuser"
+                    label="Username"
+                    type="text"
+                  />
+                  <TextField
+                    required
+                    onChange={this.handleTextChange}
+                    value={this.state.newpassword}
+                    name="newpassword"
+                    label="Password"
+                    type="password"
+                  />
+                  <br />
+                  <Button variant="contained" color="primary" type="submit">
+                    Submit
+                  </Button>
+                </form>
+              </DialogContent>
+            </Dialog>
+          </div>
         </Container>
         <Button onClick={this.login}>Use this button to login for now.</Button>
         <Button onClick={this.displayLocalState}>Use this button to test local state</Button>

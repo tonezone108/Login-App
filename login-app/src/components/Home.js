@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Button } from "@material-ui/core";
 
 class Home extends Component {
 
@@ -11,7 +12,11 @@ class Home extends Component {
     }
     render() {
         return (
-            <div>Welcome to the home page</div>
+            <div>
+                Welcome to the home page
+                <Button>Click me to check state</Button>
+            </div>
+            
         )
     }
 }
