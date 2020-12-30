@@ -11,4 +11,6 @@ const user = (state = {}, action) => {
     }
 }
 
-export default combineReducers({user});
+const testProp = (state = {}) => state
+
+export default combineReducers({user, testProp});

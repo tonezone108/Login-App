@@ -33,5 +33,7 @@ GAMEPLAN:
 7: Test Authentication from backend: DONE - test some more to be sure
 8: Build Components in Front end, use protected routes: DONE
 9: Implement redux to make fetch calls to back end to do authentication: DONE
-10: Implement redux to create a singup function to create new users with credentials to login in with: IN PROGRESS, can now create new users. Needs some polishing.
-11: Make sure global state can be accessed in home component: IN PROGRESS
+10: Implement redux to create a singup function to create new users with credentials to login in with: DONE, can now create new users. Needs some polishing.
+11: Make sure global state can be accessed in home component: DONE, entire app needs some more polishing before being deployed.
+12: Implement .ENV for connection: IN PROGRESS
+13: Deploy app for practice. IN PROGRESS

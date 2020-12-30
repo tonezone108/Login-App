@@ -3,10 +3,10 @@ import Home from "../components/Home";
 // import {login, signUp} from "../redux/actions"; IMPORT FUTURE ACTIONS HERE
 
 const mapStateToProps = state => {
-    const { user } = state;
-    return {
-        user
-    }
+  return {
+    user: state.user,
+    testProp: state.testProp,
+  };
   };
   
 

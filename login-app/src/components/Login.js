@@ -14,7 +14,8 @@ class Login extends Component {
     username: "",
     password: "",
     newuser: "",
-    newpassword: ""
+    newpassword: "",
+    redirect: false,
   };
 
   toggleDialog = () => this.setState({ open: !this.state.open });
@@ -45,6 +46,7 @@ class Login extends Component {
     console.log("This is the userObject the Login.js component sent to actions: " + userObject)
     this.props.login(userObject);
     console.log(this.props.user.username)
+    
   };
 
   createAccount = (e) => {
@@ -63,10 +65,13 @@ class Login extends Component {
 
 
   componentDidUpdate() { 
-    if(this.props.user.username){
-      window.location.replace("/");
+
+    if(this.props.user.username !== ""){
+      
+      document.cookie = "loggedIn=true; max-age = 60*1000";
+      this.setState({redirect: true});
     }
-    console.log(this.props.user.username)
+
   }
 
 
