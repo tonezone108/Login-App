@@ -9,7 +9,7 @@ import Login from "./containers/Login";
 
 const checkAuth = () => {
 const cookies = cookie.parse(document.cookie);
-var isTrueSet = (cookies["loggedIn"] == 'true');
+var isTrueSet = (cookies["loggedIn"] === 'true');
 return isTrueSet
 }
 
