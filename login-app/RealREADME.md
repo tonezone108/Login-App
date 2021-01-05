@@ -37,4 +37,4 @@ GAMEPLAN:
 10: Implement redux to create a singup function to create new users with credentials to login in with: DONE, can now create new users. Needs some polishing.
 11: Make sure global state can be accessed in home component: DONE, entire app needs some more polishing before being deployed.
 12: Implement .ENV for connection: DONE --- REMEMBER TO PUT "REACT*APP*" in front of the name of every environment variable in .env file when using react. ie: REACT_APP_USER:TestUser!
-13: Deploy app for practice. IN PROGRESS
+13: Deploy app for practice. IN PROGRESS - Able to deploy app, but facing problems on hosted website. Compare App.js & index.js between login app and money manager app
