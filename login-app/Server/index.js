@@ -4,7 +4,7 @@ const usersRouter = require("./routers/users");
 const authRouter = require("./routers/auth");
 const { logger } = require("./middleware");
 const app = express();
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 80;
 
 // FIGURE OUT THE CORS ERROR
 // TypeError: NetworkError when attempting to fetch resource.
