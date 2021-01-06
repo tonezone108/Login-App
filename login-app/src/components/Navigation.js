@@ -29,6 +29,10 @@ const Navigation = () => {
           >
             Logout
           </li>
+          <Link to="/"  onClick={() => {
+              document.cookie = "loggedIn=false";
+              window.location.replace("/");
+            }}>Logout</Link>
         </ul>
       </Toolbar>
     </AppBar>
