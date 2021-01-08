@@ -17,9 +17,6 @@ const Navigation = () => {
           <li className="nav-list-item">
             <Link to="/">Home</Link>
           </li>
-          <li className="nav-list-item">
-            <Link to="/about">About</Link>
-          </li>
           <li>
           <Link to="/"  onClick={() => {
               document.cookie = "loggedIn=false";

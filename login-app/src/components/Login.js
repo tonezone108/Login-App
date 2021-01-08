@@ -25,27 +25,15 @@ class Login extends Component {
     this.setState(state);
   };
 
-  displayLocalState = e => {
-    e.preventDefault();
-    const userObject = {
-      username: this.state.username,
-      password: this.state.password
-    };
-
-    console.log(userObject);
-  }
-
-
   login = (e) => {
     e.preventDefault();
-    // alert('did it run?')
     const userObject = {
       username: this.state.username,
       userpassword: this.state.password
     };
-    console.log("This is the userObject the Login.js component sent to actions: " + userObject)
+
     this.props.login(userObject);
-    console.log(this.props.user.username)
+
     
   };
 
@@ -156,8 +144,6 @@ class Login extends Component {
             </Dialog>
           </div>
         </Container>
-        <Button onClick={this.login}>Use this button to login for now.</Button>
-        <Button onClick={this.displayLocalState}>Use this button to test local state</Button>
       </div>
     );
   }

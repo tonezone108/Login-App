@@ -3,24 +3,17 @@ import React, {Component} from 'react'
 
 class Home extends Component {
 
-    componentDidMount() {
-        console.log(this.props.testProp)
-        console.log(this.props.user.username)
-      }
 
-    // componentDidUpdate() {
-    //     console.log(this.props.user)
-    // }
-
-    // showTheState() {
-    //     console.log(this.props.user)
-    // }
+    // use this to test the global state
+    // componentDidMount() {
+    //     console.log(this.props.testProp)
+    //     console.log(this.props.user.username)
+    //   }
 
     render() {
         return (
             <div>
                 Welcome to the home page {this.props.user.username}
-                {/* <Button onClick={this.showTheState}>Click me to check state</Button> */}
             </div>
             
         )
