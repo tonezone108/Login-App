@@ -20,19 +20,12 @@ const Navigation = () => {
           <li className="nav-list-item">
             <Link to="/about">About</Link>
           </li>
-          <li
-            className="nav-list-item"
-            onClick={() => {
-              document.cookie = "loggedIn=false";
-              window.location.replace("/login");
-            }}
-          >
-            Logout
-          </li>
+          <li>
           <Link to="/"  onClick={() => {
               document.cookie = "loggedIn=false";
               window.location.replace("/");
             }}>Logout</Link>
+            </li>
         </ul>
       </Toolbar>
     </AppBar>

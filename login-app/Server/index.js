@@ -1,13 +1,12 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const usersRouter = require("./routers/users");
 const authRouter = require("./routers/auth");
+
 const { logger } = require("./middleware");
 const app = express();
 const port = process.env.PORT || 80;
 
-// FIGURE OUT THE CORS ERROR
-// TypeError: NetworkError when attempting to fetch resource.
+app.use(express.static("build"));
 
 
 app.use(function (req, res, next) {
@@ -22,8 +21,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(logger);
 app.use("/users", usersRouter);
 app.use("/auth", authRouter);
@@ -35,3 +33,5 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Web server is listening on port ${port}!`);
 });
+
+//Howdy This is a test comment
