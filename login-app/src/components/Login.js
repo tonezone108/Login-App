@@ -156,8 +156,6 @@ class Login extends Component {
             </Dialog>
           </div>
         </Container>
-        <Button onClick={this.login}>Use this button to login for now.</Button>
-        <Button onClick={this.displayLocalState}>Use this button to test local state</Button>
       </div>
     );
   }
